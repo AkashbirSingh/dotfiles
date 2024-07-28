@@ -1,0 +1,67 @@
+{
+    "id": "bar-0",
+    "ipc": false,
+    "position": "top",
+    "layer": "top",
+    "width": 1880,
+    "margin": "10, 0, -10, 0",
+    "modules-left": ["custom/power", "hyprland/window", "tray"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["cpu", "memory", "disk", "network", "pulseaudio", "clock"],
+    "hyprland/workspaces": {
+        "all-outputs": true
+    },
+    "hyprland/window": {
+        "format": "{class}",
+        "max-length": 80
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%a · %b %d %Y}",
+    },
+    "network": {
+        "format-ethernet": " ",
+        "format-alt": "  {ipaddr}/{cidr}",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+    },
+    "tray": {
+        "icon-size": 19,
+        "spacing": 10
+   },
+   "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "/usr/bin/pavucontrol",
+    },
+    "disk": {
+		"format": " ",
+		"format-alt": " {free}"
+	},
+    "memory": {
+		"interval": 5,
+		"format": " ",
+		"format-alt": " {}%"
+	},
+	"cpu": {
+		"interval": 5,
+		"format": " ",
+		"format-alt": " {load}"
+	},
+    "custom/power": {
+        "format": " ⏻ ",
+        "tooltip": false,
+        "on-click": "wlogout --protocol layer-shell"
+    }
+}
